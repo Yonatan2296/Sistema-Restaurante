@@ -51,7 +51,7 @@ public class LOGIN extends javax.swing.JFrame {
                              break;
 
                         case 2:
-                             opciones1 form1 =new opciones1();
+                             opcionesRestricted form1 =new opcionesRestricted();
                              form1.setVisible(true);
                              this.dispose();
                              break;
