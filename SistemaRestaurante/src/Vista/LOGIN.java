@@ -11,12 +11,12 @@ public class LOGIN extends javax.swing.JFrame {
 
     Conexion cc = new Conexion();
     Connection con = cc.getConnection();
-   
-    
+
+
 
     public LOGIN() {
         initComponents();
-        this.setLocationRelativeTo(null); 
+        this.setLocationRelativeTo(null);
     }
 
     public void validarAcceso(String usuario, String password) {
@@ -26,41 +26,41 @@ public class LOGIN extends javax.swing.JFrame {
          ResultSet rs;
 
         try {
-//           
+//
 
             String sql = "Select * from usuarios where Usuario='" + usuario + "' and Password='" + password + "'";
 
              ps = con.prepareStatement(sql);
              rs = ps.executeQuery();
-            
+
             if (rs.next()) {
-                
+
                 usuario = rs.getString("Usuario");
                 password = rs.getString("Password");
-                
+
                 if  (usuario != null  && password !=null) {
-                    
+
                     niveldeacceso=rs.getInt("Level_Acces");
-                    
+
                     switch (niveldeacceso){
-                        
+
                         case 1:
                              opciones form = new opciones();
                              form.setVisible(true);
                              this.dispose();
                              break;
-                             
+
                         case 2:
                              opciones1 form1 =new opciones1();
                              form1.setVisible(true);
                              this.dispose();
                              break;
                     }
-                    
-                    
-                        
+
+
+
                     }
-                
+
             }
 
 
@@ -131,7 +131,7 @@ public class LOGIN extends javax.swing.JFrame {
         String usuario = jTextField1.getText();
         String password = String.valueOf(jPasswordField1.getPassword());
         validarAcceso(usuario, password);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -141,7 +141,7 @@ public class LOGIN extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
